@@ -1,5 +1,5 @@
 # python3
-
+# Dāvis Zommers 7.grupa 221RDB150
 class Query:
     def __init__(self, query):
         self.type = query[0]
@@ -27,7 +27,8 @@ def process_queries(queries):
                     contact.name = cur_query.name
                     break
             else: # otherwise, just add it
-                contacts.append(cur_query)
+                if len(str(cur_query.number)) < 8 and len(cur_query.name) < 16: #and str(cur_query.number)[0] != '0'
+                    contacts.append(cur_query)
         elif cur_query.type == 'del':
             for j in range(len(contacts)):
                 if contacts[j].number == cur_query.number:
@@ -44,4 +45,3 @@ def process_queries(queries):
 
 if __name__ == '__main__':
     write_responses(process_queries(read_queries()))
-
