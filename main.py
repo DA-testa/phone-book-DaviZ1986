@@ -27,7 +27,7 @@ def process_queries(queries):
                     contact.name = cur_query.name
                     break
             else: # otherwise, just add it
-                if len(str(cur_query.number)) < 8 and len(cur_query.name) < 16 and str(cur_query.number)[0] != '0':
+                if len(str(cur_query.number)) < 8 and len(cur_query.name) < 16: #and str(cur_query.number)[0] != '0'
                     contacts.append(cur_query)
         elif cur_query.type == 'del':
             for j in range(len(contacts)):
